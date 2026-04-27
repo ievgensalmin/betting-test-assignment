@@ -24,7 +24,7 @@ public class EventConsumer {
 
         bets.forEach(bet -> {
             boolean win = bet.getPredictedWinnerId().equals(event.winnerId());
-
+            log.info("Bet {} matched event {}. Settling.", bet, event);
             settlementProducer.sendSettlement(
                 bet.getBetId(),
                 bet.getUserId(),
